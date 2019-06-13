@@ -13,13 +13,13 @@ class Pastille {
 
     move(){
         if(this.sens == "haut"){
-            this.y = this.y - this.vitesse;
+            this.y -= this.vitesse;
         }else if(this.sens == "bas"){
-            this.y = this.y + this.vitesse;
+            this.y += this.vitesse;
         }else if(this.sens == "droite"){
-            this.x = this.x + this.vitesse;
+            this.x += this.vitesse;
         }else if(this.sens == "gauche"){
-            this.x = this.x - this.vitesse;
+            this.x -= this.vitesse;
         }
         this.pastille = rect(this.x,this.y,10,30);
         return this.pastille;

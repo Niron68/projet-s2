@@ -1,3 +1,5 @@
+export * from "../sketch.js";
+
 class Touche {
 
     constructor(numero){
@@ -15,25 +17,28 @@ class Touche {
         this.button.locate(ecartement*(this.numero%3), ecartement*Math.trunc(this.numero/3));
     }
 
-    myKey(valeur){
+    myKey(valeur, mode){
         res = this.numero;
         if(this.numero <= 2){
-            res = res + 6;
+            res += 6;
         }else if(this.numero >= 6){
-            res = res - 6;
+            res -= 6;
         }
-        res = res + 97;
+        res += 97;
+        if(mode == "Off"){
+            res += 1000;
+        }
         return res == valeur;
     }
 
     isOn(valeur){
-        if(this.myKey(valeur)){
+        if(this.myKey(valeur, "On")){
             this.button.color = colorClick;
         }
     }
 
     isOff(){
-        if(!this.myKey(valeur)){
+        if(this.myKey(valeur, "Off")){
             this.button.color = colorBase;
         }
     }
@@ -41,6 +46,11 @@ class Touche {
     setSize(width, height) {
         this.button.width = width;
         this.button.height = height;
+    }
+
+    check(valeur){
+        this.isOn(valeur);
+        this.isOff(valeur);
     }
 
 }

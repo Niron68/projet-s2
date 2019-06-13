@@ -1,3 +1,4 @@
+import Touche from "./class/Touche.js";
 let value = 0;
 let x,y = 0;
 
@@ -9,6 +10,11 @@ function setup() {
 }
 
 var button = [];
+for(var i = 0; i < 9; i++){
+  button.push(new Touche(i+1));
+  button[i].applyPosition(80);
+}
+/*
 colorBase = "#CCCCCC";
 colorClick = "#FF0088";
 for(var i = 0; i < 9; i++){
@@ -23,9 +29,11 @@ for(var i = 0; i < 9; i++){
   button[i].color = colorBase;
   button[i].text = "";
 }
+*/
 
 function draw() {
   background(100,50,200);
+  /*
   for(var i = 0; i < 9; i++){
     if(value == associateKey(i))
     {
@@ -37,14 +45,11 @@ function draw() {
     }
     button[i].draw();
   }
-  stroke(50);
-  fill(0,255,0);
-  rect(x, y, 10, 30);
-  x = x + 7;
-  if(x > 210){
-    x = 10;
+  */
+  for(var i = 0; i < 9; i++){
+    button[i].check(value);
+    button[i].button.draw();
   }
-  
 }
 
 function keyPressed() {
@@ -55,6 +60,7 @@ function keyReleased() {
   value = keyCode + 1000;
 }
 
+/*
 function associateKey(number) {
   res = number;
   if(number <= 2){
@@ -64,7 +70,7 @@ function associateKey(number) {
   }
   return res + 97;
 }
-
+*/
 function makeAnimation(direction, taille, posX, posY, vitesse) {
   stroke(50);
   fill(0,255,0);
