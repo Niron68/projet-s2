@@ -43,4 +43,13 @@ class Touche {
         this.button.height = height;
     }
 
+    move(x, y){
+        this.button.x += x;
+        this.button.y += y;
+    }
+
+    draw(){
+        this.button.draw();
+    }
+
 }

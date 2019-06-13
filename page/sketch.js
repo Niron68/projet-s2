@@ -8,22 +8,13 @@ function setup() {
   y = 10;
 }
 
-var button = [];
-for(var i = 0; i < 9; i++){
-  button.push(new Touche(i+1));
-  button[i].applyPosition(80);
-}
+var pad = new Launchpad();
+//pad.move(150,150);
 
 function draw() {
   background(100,50,200);
-  for(var i = 0; i < 9; i++){
-    if(keyIsPressed === true){
-      button[i].isOn(value);
-    }else{
-      button[i].isOff();
-    }
-    button[i].button.draw();
-  }
+  pad.checkKeyboard(value);
+  pad.draw();
 }
 
 function keyPressed() {
