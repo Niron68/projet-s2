@@ -15,7 +15,7 @@ class Touche {
         this.button.locate(ecartement*((this.numero-1)%3), ecartement*Math.trunc((this.numero-1)/3));
     }
 
-    myKey(valeur, mode){
+    myKey(valeur){
         var res = this.numero-1;
         if(this.numero-1 <= 2){
             res += 6;
@@ -23,32 +23,24 @@ class Touche {
             res -= 6;
         }
         res += 97;
-        if(mode == "Off"){
-            res += 1000;
-        }
         return res == valeur;
     }
 
     isOn(valeur){
-        if(this.myKey(valeur, "On")){
+        if(this.myKey(valeur)){
             this.button.color = this.colorClick;
+        }else{
+            this.isOff();
         }
     }
 
-    isOff(valeur){
-        if(this.myKey(valeur, "Off")){
-            this.button.color = this.colorBase;
-        }
+    isOff(){
+        this.button.color = this.colorBase;
     }
 
     setSize(width, height) {
         this.button.width = width;
         this.button.height = height;
-    }
-
-    check(valeur){
-        this.isOn(valeur);
-        this.isOff(valeur);
     }
 
 }
