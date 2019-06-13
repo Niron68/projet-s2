@@ -1,4 +1,3 @@
-import Touche from "./class/Touche.js";
 let value = 0;
 let x,y = 0;
 

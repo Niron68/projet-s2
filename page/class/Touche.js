@@ -1,5 +1,3 @@
-export * from "../sketch.js";
-
 class Touche {
 
     constructor(numero){
@@ -14,14 +12,14 @@ class Touche {
     }
 
     applyPosition(ecartement){
-        this.button.locate(ecartement*(this.numero%3), ecartement*Math.trunc(this.numero/3));
+        this.button.locate(ecartement*((this.numero-1)%3), ecartement*Math.trunc((this.numero-1)/3));
     }
 
     myKey(valeur, mode){
-        res = this.numero;
-        if(this.numero <= 2){
+        var res = this.numero-1;
+        if(this.numero-1 <= 2){
             res += 6;
-        }else if(this.numero >= 6){
+        }else if(this.numero-1 >= 6){
             res -= 6;
         }
         res += 97;
@@ -33,13 +31,13 @@ class Touche {
 
     isOn(valeur){
         if(this.myKey(valeur, "On")){
-            this.button.color = colorClick;
+            this.button.color = this.colorClick;
         }
     }
 
-    isOff(){
+    isOff(valeur){
         if(this.myKey(valeur, "Off")){
-            this.button.color = colorBase;
+            this.button.color = this.colorBase;
         }
     }
 
