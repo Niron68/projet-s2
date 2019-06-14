@@ -7,7 +7,7 @@ function setup() {
 
 var pad = new Launchpad();
 pad.move(300,300);
-//var past = new Pastille("haut", 7, pad.touches[7]);
+var past2 = new Pastille("haut", 7, pad.touches[7]);
 var past = new Pastille("centre", 7, pad.touches[4]);
 
 function draw() {
@@ -16,6 +16,7 @@ function draw() {
   pad.checkKeyboard(value);
   pad.draw();
   past.draw();
+  past2.draw();
 }
 
 function keyPressed() {

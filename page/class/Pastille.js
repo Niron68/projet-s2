@@ -89,7 +89,7 @@ class Pastille {
             this.baseX = this.touche.button.x + this.touche.button.width + this.taille;
             this.baseY = this.touche.button.y + this.getMid();
         }else if(this.sens == "centre"){
-            this.baseX = this.touche.button.x + this.touche.button.width/2 + 300;
+            this.baseX = this.touche.button.x + this.touche.button.width/2;
             this.baseY = this.touche.button.y + this.touche.button.height/2;
             this.width = 0;
             this.height = 0;
@@ -127,8 +127,8 @@ class Pastille {
         }else if(this.sens == "centre"){
             this.width += this.getGrowingSpeed();
             this.height += this.getGrowingSpeed();
-            console.log(this.width);
-            console.log(this.height);
+            this.x = this.baseX - Math.trunc(this.width/2);
+            this.y = this.baseY - Math.trunc(this.height/2);
             if(this.width > 75){
                 finished = true;
             }
@@ -141,7 +141,7 @@ class Pastille {
      */
     draw(){
         if(this.move()){
-            stroke("#FF0000");
+            stroke(50);
             fill(this.couleur);
             rect(this.x, this.y, Math.trunc(this.width), Math.trunc(this.height), this.corner);
         }
@@ -174,7 +174,7 @@ class Pastille {
      * Donne la vitesse de grossissement de la pastille central par rapport a la vitesse
      */
     getGrowingSpeed(){
-        var grow = this.touche.width / 2;
+        var grow = this.touche.button.width;
         grow /= this.taille / this.vitesse;
         return grow;
     }
