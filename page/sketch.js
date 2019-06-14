@@ -3,24 +3,27 @@ let x,y = 0;
 
 function setup() {
   createCanvas(1900,1000);
-  frameRate(30);
+  //frameRate(30);
   x = 10;
   y = 10;
 }
 
 var pad = new Launchpad();
 //pad.move(150,150);
+var past = new Pastille("haut", 7, pad.touches[7]);
 
 function draw() {
   background(100,50,200);
   pad.checkKeyboard(value);
   pad.draw();
+  past.draw();
 }
 
 function keyPressed() {
   value = keyCode;
 }
 
+/*
 function makeAnimation(direction, taille, posX, posY, vitesse) {
   stroke(50);
   fill(0,255,0);
@@ -35,3 +38,4 @@ function makeAnimation(direction, taille, posX, posY, vitesse) {
     x = 500;
   }
 }
+*/
