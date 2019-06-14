@@ -111,7 +111,7 @@ class Pastille {
             }
         }else if(this.sens == "bas"){
             this.y += this.vitesse;
-            if(this.y > this.baseY + this.taille){
+            if(this.y > this.baseY + this.taille - this.height){
                 finished = true;
             }
         }else if(this.sens == "droite"){
