@@ -6,7 +6,7 @@ class Touche {
      * @param {*} numero Le numero de la touche
      */
     constructor(numero){
-        
+
         /**
          * @var int Numero de la touche
          */
@@ -30,6 +30,19 @@ class Touche {
         this.button.color = this.colorBase;
         this.button.width = 75;
         this.button.height = 75;
+        this.applyPosition(80);
+
+        if(numero <= 3){
+            this.pastille = new Pastille("bas", 7, this.button.x, this.button.y, this.button.width, this.button.height);
+        }else if(numero == 4){
+            this.pastille = new Pastille("droite", 7, this.button.x, this.button.y, this.button.width, this.button.height);
+        }else if(numero == 6){
+            this.pastille = new Pastille("gauche", 7, this.button.x, this.button.y, this.button.width, this.button.height);
+        }else if(numero == 5){
+            this.pastille = new Pastille("centre", 7, this.button.x, this.button.y, this.button.width, this.button.height);
+        }else{
+            this.pastille = new Pastille("haut", 7, this.button.x, this.button.y, this.button.width, this.button.height);
+        }
     }
 
     /**
@@ -61,7 +74,9 @@ class Touche {
      */
     isOn(valeur){
         if(this.myKey(valeur)){
+            //Action a effectuer quand la touche est active
             this.button.color = this.colorClick;
+            this.pastille.setActive();
         }else{
             this.isOff();
         }
@@ -71,6 +86,7 @@ class Touche {
      * Les action à effectuer si la touche est relacher
      */
     isOff(){
+        //Action a effectuer quand la touche est inactive
         this.button.color = this.colorBase;
     }
 
@@ -92,6 +108,7 @@ class Touche {
     move(x, y){
         this.button.x += x;
         this.button.y += y;
+        this.pastille.deplace(x, y);
     }
 
     /**
@@ -99,6 +116,7 @@ class Touche {
      */
     draw(){
         this.button.draw();
+        this.pastille.draw();
     }
 
 }
