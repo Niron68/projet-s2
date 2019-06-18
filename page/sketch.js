@@ -29,4 +29,3 @@ function draw() {
 function keyPressed() {
   value = keyCode;
 }
-
