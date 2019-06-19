@@ -51,4 +51,7 @@ class Launchpad {
         }
     }
 
+    pastille(number){
+        this.touches[number].pastille.setActive();
+    }
 }

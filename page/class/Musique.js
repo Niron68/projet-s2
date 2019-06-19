@@ -1,7 +1,7 @@
 class Musique extends Son{
 
-    constructor(temps, id, titre){
-        this.call(temps, id);
+    constructor(id, titre){
+        this.call(0, id);
         this.titre = titre;
         this.notes = [];
         this.notes.push(new Note(5.35, 1));
@@ -11,4 +11,7 @@ class Musique extends Son{
         this.notes.push(new Note(15.35, 5));
     }
 
+    getNoteTime(id){
+        return this.notes[id].temps;
+    }
 }
