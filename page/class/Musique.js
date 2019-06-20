@@ -1,7 +1,7 @@
 class Musique extends Son{
 
     constructor(id, titre){
-        super(0, id);
+        super(id + ".ogg", 0);
         this.titre = titre;
         this.notes = [];
         this.notes.push(new Note(5.35, 1));
@@ -13,5 +13,17 @@ class Musique extends Son{
 
     getNoteTime(id){
         return this.notes[id].temps;
+    }
+
+    load(){
+        super.load();
+        this.notes.forEach( (element) => {
+            element.load();
+        });
+        
+    }
+
+    getActualTime(){
+        return Math.floor(this.sound.currentTime()*100)/100;
     }
 }

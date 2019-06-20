@@ -54,4 +54,8 @@ class Launchpad {
     pastille(number){
         this.touches[number].pastille.setActive();
     }
+
+    getTime(){
+        return this.touches[0].getTime();
+    }
 }

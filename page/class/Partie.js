@@ -10,4 +10,16 @@ class Partie{
         this.musique.play();
     }
 
+    load(){
+        this.musique.load();
+    }
+
+    getActualTime(){
+        return this.musique.getActualTime();
+    }
+
+    getNotes(){
+        return this.musique.notes;
+    }
+
 }

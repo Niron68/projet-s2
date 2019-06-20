@@ -9,8 +9,9 @@ class Son {
         this.sound = loadSound("./sound/"+this.fileName, () => {
             this.loaded = true;
             console.log(this.loaded);
-        }, () => {print("load failed");}, () => {print("loading ....");});
-        
+        }, () => {
+            print("load failed :" + this.fileName);
+        }, () => {print("loading ....");});
     }
 
     play(){
@@ -18,11 +19,6 @@ class Son {
             this.sound.play();
         }
         console.log("play this music !");
-    }
-
-    getActualTime(){
-        console.log("time")
-        return this.sound.currentTime();
     }
 
 }

@@ -35,15 +35,15 @@ class Touche {
         this.applyPosition(80);
 
         if(numero <= 3){
-            this.pastille = new Pastille("bas", 10, this.button.x, this.button.y, this.button.width, this.button.height);
+            this.pastille = new Pastille("bas", 7, this.button.x, this.button.y, this.button.width, this.button.height);
         }else if(numero == 4){
-            this.pastille = new Pastille("droite", 10, this.button.x, this.button.y, this.button.width, this.button.height);
+            this.pastille = new Pastille("droite", 7, this.button.x, this.button.y, this.button.width, this.button.height);
         }else if(numero == 6){
-            this.pastille = new Pastille("gauche", 10, this.button.x, this.button.y, this.button.width, this.button.height);
+            this.pastille = new Pastille("gauche", 7, this.button.x, this.button.y, this.button.width, this.button.height);
         }else if(numero == 5){
-            this.pastille = new Pastille("centre", 10, this.button.x, this.button.y, this.button.width, this.button.height);
+            this.pastille = new Pastille("centre", 7, this.button.x, this.button.y, this.button.width, this.button.height);
         }else{
-            this.pastille = new Pastille("haut", 10, this.button.x, this.button.y, this.button.width, this.button.height);
+            this.pastille = new Pastille("haut", 7, this.button.x, this.button.y, this.button.width, this.button.height);
         }
     }
 
@@ -78,8 +78,8 @@ class Touche {
         if(this.myKey(valeur)){
             //Action a effectuer quand la touche est active
             this.button.color = this.colorClick;
-            this.pastille.setActive();
-            console.log(this.pastille.getTime());
+            //this.pastille.setActive();
+            //console.log(this.pastille.getTime());
         }else{
             this.isOff();
         }
@@ -128,6 +128,10 @@ class Touche {
 
     playSon(){
         this.son.play();
+    }
+
+    getTime(){
+        return this.pastille.getTime();
     }
 
 }

@@ -21,4 +21,8 @@ class Note {
         this.son.play();
     }
 
+    load(){
+        this.son.load();
+    }
+
 }
