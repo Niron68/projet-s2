@@ -33,7 +33,7 @@ console.log("temps pastille : " +pad.getTime());
 
 function draw() {
   time = partie.getActualTime();
-  if(time > notes[actualNote].temps){
+  if(time > notes[actualNote].temps && actualNote < notes.length-1){
     actualNote++;
     timeNote = notes[actualNote].temps - pad.getTime();
   }
@@ -47,6 +47,7 @@ function draw() {
   pad.checkKeyboard(value);
   pad.draw();
   textSize(32);
+  FileList(0);
   text(time, 1000, 30);
 }
 
