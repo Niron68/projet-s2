@@ -47,7 +47,8 @@ function draw() {
   pad.checkKeyboard(value);
   pad.draw();
   textSize(32);
-  FileList(0);
+  fill(0);
+  noStroke();
   text(time, 1000, 30);
 }
 
