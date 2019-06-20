@@ -1,7 +1,7 @@
 class Musique extends Son{
 
     constructor(id, titre){
-        this.call(0, id);
+        super(0, id);
         this.titre = titre;
         this.notes = [];
         this.notes.push(new Note(5.35, 1));

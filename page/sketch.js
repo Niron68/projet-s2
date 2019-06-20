@@ -1,30 +1,30 @@
 let value = 0;
 
+var son = new Son("PremierSon.ogg");
+
 function preload(){
-  //son = new Son('a.mp3');
+  soundFormats('ogg', 'mp3');
+  son.load();
 }
+
+//var partie = new Partie("test", "Premier Son", "PremierSon");
 
 function setup() {
   var cnv = createCanvas(1920,800);
   cnv.position(100,100);
+  son.play();
 }
 
 var pad = new Launchpad();
 pad.move(705,268);
-//var past2 = new Pastille("bas", 7, pad.touches[0]);
-//var past = new Pastille("centre", 7, pad.touches[4]);
-//var note = new Note(2, 'a.mp3');
-
+//partie.play();
 
 function draw() {
   clear();
-  //background(100,50,200);
-  //rect(0,0,75,75,10);
   pad.checkKeyboard(value);
   pad.draw();
-  //past.draw();
-  //past2.draw();
-  //note.play();
+  textSize(32);
+  text(son.getActualTime());
 }
 
 function keyPressed() {

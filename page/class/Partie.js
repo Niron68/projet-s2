@@ -6,4 +6,8 @@ class Partie{
         this.musique = new Musique(id, titre);
     }
 
+    play(){
+        this.musique.play();
+    }
+
 }

@@ -1,13 +1,28 @@
 class Son {
 
     constructor(fileName){
-        soundFormats('ogg', 'mp3');
         this.fileName = fileName;
-        this.sound = loadSound("./sound/"+this.fileName);
+        this.loaded = false;
+    }
+
+    load(){
+        this.sound = loadSound("./sound/"+this.fileName, () => {
+            this.loaded = true;
+            console.log(this.loaded);
+        }, () => {print("load failed");}, () => {print("loading ....");});
+        
     }
 
     play(){
-        this.sound.play();
+        if(this.loaded){
+            this.sound.play();
+        }
+        console.log("play this music !");
+    }
+
+    getActualTime(){
+        console.log("time")
+        return this.sound.currentTime();
     }
 
 }
