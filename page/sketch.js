@@ -25,7 +25,9 @@ var pad = new Launchpad();
 pad.move(705,268);
 var notes = partie.getNotes();
 console.debug(notes);
-var timeNote = notes[actualNote].temps - pad.getTime();
+var timePastille = notes[actualNote].temps - pad.getTime();
+var key = 999;
+var lastTimePressed = 0;
 
 console.log("temps note : " + notes[actualNote].temps);
 console.log("temps pastille : " +pad.getTime());
@@ -35,19 +37,27 @@ function draw() {
   time = partie.getActualTime();
   if(time > notes[actualNote].temps && actualNote < notes.length-1){
     actualNote++;
-    timeNote = notes[actualNote].temps - pad.getTime();
+    timePastille = notes[actualNote].temps - pad.getTime();
   }
-  if(!isNaN(timeNote)){
-    //print(timeNote);
+  if(!isNaN(timePastille)){
+    //print(timePastille);
   }
-  if(time > timeNote - 0.03 && time < timeNote + 0.03){
+  if(time > timePastille - 0.03 && time < timePastille + 0.03){
     pad.pastille(notes[actualNote].toucheNum);
   }
   clear();
-  pad.checkKeyboard(value);
+  key = pad.checkKeyboard(value);
   pad.draw();
+  if(key < 10){
+    lastTimePressed = time;
+  }
+  if(notes[actualNote].calculateScore(lastTimePressed) > 0){
+    notes[actualNote].play();
+    key = 999;
+    actualNote++;
+  }
   textSize(32);
-  fill(0);
+  fill(255);
   noStroke();
   text(time, 1000, 30);
 }

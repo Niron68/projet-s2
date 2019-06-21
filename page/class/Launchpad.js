@@ -42,13 +42,18 @@ class Launchpad {
      * @param {*} value L'id de la touche de clavier actuellement appuyer;
      */
     checkKeyboard(value){
+        var res = 999;
         for(var i = 0; i < 9; i++){
             if(keyIsPressed === true){
-              this.touches[i].isOn(value);
+              if(this.touches[i].isOn(value)){
+                res = i;
+              }
             }else{
-              this.touches[i].isOff();
+                this.touches[i].isOff();
+                res = 999;
             }
         }
+        return res;
     }
 
     pastille(number){

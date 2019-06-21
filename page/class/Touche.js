@@ -75,14 +75,16 @@ class Touche {
      * @param {*} valeur L'id d'une touche du clavier
      */
     isOn(valeur){
+        var res = false;
         if(this.myKey(valeur)){
             //Action a effectuer quand la touche est active
+            res = true;
             this.button.color = this.colorClick;
-            //this.pastille.setActive();
-            //console.log(this.pastille.getTime());
+            
         }else{
             this.isOff();
         }
+        return res;
     }
 
     /**
