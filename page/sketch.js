@@ -51,7 +51,7 @@ function draw() {
   if(key < 10){
     lastTimePressed = time;
   }
-  if(notes[actualNote].calculateScore(lastTimePressed) > 0){
+  if(notes[actualNote].calculateScore(lastTimePressed) > 0 && key == notes[actualNote].toucheNum){
     notes[actualNote].play();
     key = 999;
     actualNote++;

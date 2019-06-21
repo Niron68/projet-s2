@@ -6,7 +6,7 @@ class Note {
         this.id = id;
         this.toucheNum = Math.floor(Math.random() * Math.floor(9));
         this.son = new Son(id + ".ogg");
-        this.epsilon = 0.1;
+        this.epsilon = 0.3;
     }
 
     calculateScore(temps){
