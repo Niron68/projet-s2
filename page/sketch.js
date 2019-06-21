@@ -36,6 +36,7 @@ console.log("temps pastille : " +pad.getTime());
 function draw() {
   time = partie.getActualTime();
   if(time > notes[actualNote].temps && actualNote < notes.length-1){
+    partie.refreshScore(actualNote);
     actualNote++;
     timePastille = notes[actualNote].temps - pad.getTime();
   }
@@ -54,12 +55,14 @@ function draw() {
   if(notes[actualNote].calculateScore(lastTimePressed) > 0 && key == notes[actualNote].toucheNum){
     notes[actualNote].play();
     key = 999;
+    partie.refreshScore(actualNote);
     actualNote++;
   }
   textSize(32);
   fill(255);
   noStroke();
   text(time, 1000, 30);
+  text(partie.score, 1000,60);
 }
 
 function keyPressed() {

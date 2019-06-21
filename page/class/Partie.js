@@ -22,4 +22,8 @@ class Partie{
         return this.musique.notes;
     }
 
+    refreshScore(note){
+        this.score += this.musique.notes[note].score;
+    }
+
 }
